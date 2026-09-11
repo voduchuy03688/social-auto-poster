@@ -1,10 +1,10 @@
-# 🚀 Social Auto Poster - AI Content & Social Media Distribution Platform
+# Social Auto Poster - AI Content & Social Media Distribution Platform
 
 Nền tảng Fullstack tự động hóa 100% quy trình sáng tạo nội dung văn bản, sinh ảnh minh họa AI và phân phối bài viết hàng loạt lên mạng xã hội **Meta Threads**.
 
 ---
 
-## 📸 Demo Giao Diện (Screenshots)
+## Demo Giao Diện (Screenshots)
 
 ### 1. Dashboard Tổng Quan & Quản Lý Bài Viết
 ![Dashboard Overview](docs/images/dashboard-overview.png)
@@ -20,23 +20,23 @@ Nền tảng Fullstack tự động hóa 100% quy trình sáng tạo nội dung 
 
 ---
 
-## ✨ Tính Năng Nổi Bật
+## Tính Năng Nổi Bật
 
-- 🤖 **Sáng Tạo Nội Dung Bằng Generative AI:** Tích hợp OpenAI GPT-4o và Google Gemini để tự động tạo ra bài viết truyền cảm hứng, chuyên nghiệp theo từng chủ đề.
-- 🎨 **Tự Động Sinh Ảnh AI Minh Họa:** Tích hợp OpenAI DALL-E 3 và các engine sinh ảnh HD tự động tạo banner/ảnh minh họa đồng bộ với nội dung bài đăng.
-- 🧹 **Bộ Lọc Văn Bản Chuẩn Hóa:** Tự động lọc sạch 100% Emoji/Icons thừa (`stripEmojis`), kiểm soát độ dài chuẩn mực dưới 480 ký tự theo quy định của Meta Threads.
-- ⚡ **Cơ Chế Đăng Bài Đa Phương Thức (Multi-strategy Publisher):**
+- **Sáng Tạo Nội Dung Bằng Generative AI:** Tích hợp OpenAI GPT-4o và Google Gemini để tự động tạo ra bài viết truyền cảm hứng, chuyên nghiệp theo từng chủ đề.
+- **Tự Động Sinh Ảnh AI Minh Họa:** Tích hợp OpenAI DALL-E 3 và các engine sinh ảnh HD tự động tạo banner/ảnh minh họa đồng bộ với nội dung bài đăng.
+- **Bộ Lọc Văn Bản Chuẩn Hóa:** Tự động lọc sạch 100% Emoji/Icons thừa (`stripEmojis`), kiểm soát độ dài chuẩn mực dưới 480 ký tự theo quy định của Meta Threads.
+- **Cơ Chế Đăng Bài Đa Phương Thức (Multi-strategy Publisher):**
   - **Meta Graph API Official:** Workflow 2 bước (`createThreadsContainer` -> `publishThreadsContainer`).
   - **Internal Web API Reverse Engineering:** Giả lập HTTP Client đăng trực tiếp qua Session Cookie, Bearer Token và CSRF validation.
   - **Binary Rupload Stream Engine:** Nạp trực tiếp stream ảnh JPEG dạng `Buffer` lên server Instagram/Threads với thuật toán xử lý lỗi 4 tầng (4-layer fallback).
-- 📅 **Lập Lịch Đăng Thông Minh (Smart Batch Scheduler):**
+- **Lập Lịch Đăng Thông Minh (Smart Batch Scheduler):**
   - Nhập hàng loạt chủ đề (Topic List) hoặc Import file CSV.
   - Tự động giãn cách thời gian đăng (vd: 1 bài/ngày lúc 9:00 AM).
   - Background Cron Job (`@nestjs/schedule`) quét MongoDB mỗi 60 giây và đẩy bài đăng tự động.
 
 ---
 
-## 🛠️ Công Nghệ Sử Dụng (Tech Stack)
+## Công Nghệ Sử Dụng (Tech Stack)
 
 ### Backend
 - **Framework:** Node.js, NestJS (TypeScript, Modular Architecture)
@@ -53,7 +53,7 @@ Nền tảng Fullstack tự động hóa 100% quy trình sáng tạo nội dung 
 
 ---
 
-## ⚙️ Hướng Dẫn Cài Đặt & Chạy Dự Án
+## Hướng Dẫn Cài Đặt & Chạy Dự Án
 
 ### Yêu Cầu Hệ Thống
 - Node.js >= 20.x
@@ -115,7 +115,7 @@ Frontend sẽ chạy tại: `http://localhost:3000`
 
 ---
 
-## 📖 Hướng Dẫn Sử Dụng Chi Tiết
+## Hướng Dẫn Sử Dụng Chi Tiết
 
 1. **Kết Nối Tài Khoản:**
    - Truy cập `http://localhost:3000`.
@@ -131,6 +131,6 @@ Frontend sẽ chạy tại: `http://localhost:3000`
 
 ---
 
-## 📜 Giấy Phép (License)
+## Giấy Phép (License)
 
 Dự án được phát hành dưới bản quyền **UNLICENSED** / Nội bộ.
