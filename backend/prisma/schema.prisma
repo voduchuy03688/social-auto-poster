@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PlatformType {
+  FACEBOOK
+  THREADS
+}
+
+enum PostStatus {
+  DRAFT
+  SCHEDULED
+  PUBLISHING
+  PUBLISHED
+  FAILED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SocialAccount {
+  id           String       @id @default(uuid())
+  platform     PlatformType
+  accountName  String
+  accountId    String       // FB Page ID or Threads User ID
+  accessToken  String       // Encrypted Long-lived token
+  tokenExpires DateTime?
+  avatarUrl    String?
+  isActive     Boolean      @default(true)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  targets      PostTarget[]
+}
+
+model Post {
+  id          String       @id @default(uuid())
+  title       String?
+  content     String       // Text body
+  mediaUrls   String[]     // Image/Video URLs
+  scheduledAt DateTime?    // Delivery time (Null if immediate)
+  status      PostStatus   @default(DRAFT)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  targets     PostTarget[]
+}
+
+model PostTarget {
+  id              String        @id @default(uuid())
+  postId          String
+  post            Post          @relation(fields: [postId], references: [id], onDelete: Cascade)
+  accountId       String
+  account         SocialAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  platform        PlatformType
+  status          PostStatus    @default(SCHEDULED)
+  platformPostId  String?       // FB post_id or Threads media_id
+  errorMessage    String?
+  publishedAt     DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
